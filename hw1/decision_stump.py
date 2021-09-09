@@ -1,6 +1,5 @@
 import numpy as np
 from collections import Counter
-import argparse
 import sys
 
 def data_reading(filename):
