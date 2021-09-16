@@ -120,6 +120,10 @@ class Node():
             return
         
         self.splitNode()
+<<<<<<< HEAD
+=======
+        print(self)
+>>>>>>> 713d0c82f12244b29158297dca0d1fc5e5f677a4
         if self.left:
             self.left.train()
             
@@ -194,7 +198,11 @@ def main(train_in, test_in, max_depth, train_out, test_out, metrics):
 if __name__ == '__main__':
     '''
     运行方法：
+<<<<<<< HEAD
     python decisionTree.py ./data/politicians_train.tsv ./data/politicians_test.tsv 6 ./output/pol_6_train.labels ./output/pol_6_test.labels ./output/pol_6_metrics.txt
+=======
+    python decisionTree.py ./data/education_train.tsv ./data/education_test.tsv 3 ./output/education_3_train.labels ./output/education_3_test.labels ./output/education_3_metrics.txt
+>>>>>>> 713d0c82f12244b29158297dca0d1fc5e5f677a4
     '''
 
     train_in = sys.argv[1]
