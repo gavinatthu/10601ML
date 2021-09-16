@@ -120,7 +120,6 @@ class Node():
             return
         
         self.splitNode()
-        print(self)
         if self.left:
             self.left.train()
             
