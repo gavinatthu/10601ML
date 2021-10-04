@@ -2,7 +2,7 @@
 
 This is the repo of the assignments of [CMU Mechine Learning 10601 (21Fall)](http://www.cs.cmu.edu/~mgormley/courses/10601/). Mainly implemented with Python and Numpy.  
 
-Aiming to help Silvia with her mastery of programming and PRML skills, so as me.  
+Aiming to help Silvia with her mastery of programming and PRML skills, so as me. If you find the repo useful, please star us.  
 
 
 ### Assignment 1:
