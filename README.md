@@ -12,8 +12,23 @@ Aiming to help Silvia with her mastery of programming and PRML skills, so as me.
 - [x] Decision Tree
 
 ### Assignment 3:
-- [x] KNN, Linear Regression
+- [x] KNN, Preceptron, Linear Regression
 
 ### Assignment 4:
 - [x] NLP feature engineering: W2V, Bag-of-words
 - [ ] Logistic Regression
+
+### Assignment 5: 
+- [ ] Neural Networks
+
+### Assignment 6: 
+- [ ] Generative Models
+
+### Assignment 7: 
+- [ ] Hidden Markov Models
+
+### Assignment 8:
+- [ ] Reinforcement Learning
+
+### Assignment 9:
+- [ ] SVMs, K-Means, PCA, Boosting
