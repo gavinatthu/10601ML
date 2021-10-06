@@ -1,6 +1,10 @@
 import numpy as np
 import sys
+import time
 
+
+def sigmoid(z):
+    return 1.0 / (1 + np.exp(-z))
 
 class LR():
     def __init__(self, train_in, dict_in, metrics, epochs):
@@ -8,54 +12,102 @@ class LR():
         self.dict_in = dict_in
         self.metrics = metrics
         self.epochs = epochs
-        self.labels, self.feats = self.data_reading()
-        print(self.labels.shape, self.feats.shape)
+        self.lr = 0.01                                 # 初始化学习率
+        self.labels, self.feats = self.data_reading(self.train_in)
+
+        print("Nums of samples:{}, Features:{}".format(len(self.labels), self.feats.shape[1]))
         
 
-    def data_reading(self):
+    def data_reading(self, input = None):
         '''
         data reading from input filename
         '''
         labels, feats = [], []
 
-        with open(self.train_in,'r') as inf:
+        with open(input,'r') as inf:
             lines = inf.readlines()
             for line in lines:
                 line.replace('\n', '\t')
-                labels.append(line.split("\t")[0])
+                labels.append(float(line.split("\t")[0]))
                 feat = np.array(line.split("\t")[1:], dtype=float)  # dtype=int for model1?
                 feats.append(feat)
         
         return np.array(labels), np.array(feats)
 
-    def gradient(self, input):
-        grad = 0
-        return grad
+    def SGD(self, label, feat, w, lr):
+
+        N = len(self.labels)
+        pred = sigmoid(np.dot(feat, w.T))
+        label = label.astype(np.float64)                            # float精度转换，否则下一步会出错
+        w_new = w + lr/N * (label - pred) * feat
+        pred = 1 if pred >= 0.5 else 0                          # 二值化pred
+        return w_new, pred
+
 
     def train(self):
         '''
         training for n epochs with train_data
         '''
-        cor = 0
-        for epoch in range(self.epochs):
-            for label, 
-            if pred == label:
-                cor += 1 
+        
+        bias = np.ones((len(self.labels),1),dtype=float)
+        self.feats = np.concatenate((bias, self.feats), axis=1) # 添加bias到第0列, feats-> (N,M+1)=(350, 301)
 
+        w = np.zeros(self.feats.shape[1])                  # 0初始化权重矩阵(M+1)维 (301, )
+
+        for epoch in range(self.epochs):
+
+            for i in range(len(self.labels)):
+                label, feat = self.labels[i], self.feats[i]
+                w, _ = self.SGD(label, feat, w, self.lr)
+
+            #self.test()
+        self.weight = w
         return None
 
-    def test(self):
+    def test(self, test_in, test_out):
         '''
         test with test_data or valid_data
         '''
-        return None
+        labels, feats = self.data_reading(test_in)
+        bias = np.ones((len(labels),1),dtype=float)
+        feats = np.concatenate((bias, feats), axis=1) # 添加bias到第0列, feats-> (N,M+1)=(350, 301)
 
+        preds = []
+        for i in range(len(labels)):
+            label, feat = labels[i], feats[i]
+            _, pred = self.SGD(label, feat, self.weight, self.lr)
+            preds.append(pred)
+
+        cor = np.sum(preds == labels)
+        print("Correct:{}/{}, err_rate:{}".format(cor, len(labels), 1-cor/len(labels),6))
+
+        self.preds = preds
+        self.format_out(test_out)
+
+        return float(1-cor/len(labels))
+
+    def format_out(self, test_out):
+
+        with open(test_out, 'w') as f:
+            for pred in self.preds:
+                f.write(str(pred)+'\n')
+
+        return None
+    
 
 
 def main(train_in, valid_in, test_in, dict_in, train_out, test_out, metrics, epochs):
+    start = time.time()
     myLR = LR(train_in, dict_in, metrics, epochs)
     myLR.train()
+    acc_train = myLR.test(train_in, train_out)
+    acc_test = myLR.test(test_in, test_out)
 
+    with open(metrics, 'w') as f:
+        f.write('error(train): ' + str("%.6f" % acc_train) + '\n')
+        f.write('error(test): ' + str("%.6f" % acc_test) + '\n')
+
+    print("Time consuming:", time.time() - start)
     #myLR.test(train_in, train_out)
     #myLR.test(test_in, test_out)
 

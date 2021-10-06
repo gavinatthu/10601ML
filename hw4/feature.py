@@ -138,7 +138,7 @@ if __name__ == '__main__':
     python feature.py ./handout/smalldata/train_data.tsv ./handout/smalldata/valid_data.tsv `
          ./handout/smalldata/test_data.tsv ./handout/dict.txt `
          ./output/formatted_train.tsv ./output/formatted_valid.tsv `
-         ./output/formatted_test.tsv 2 ./handout/word2vec.txt
+         ./output/formatted_test.tsv 1 ./handout/word2vec.txt
 
     gyx mac用:
     python3 feature.py ./handout/smalldata/train_data.tsv ./handout/smalldata/valid_data.tsv \
