@@ -16,7 +16,7 @@ Aiming to help Silvia with her mastery of programming and PRML skills, so as me.
 
 ### Assignment 4:
 - [x] NLP feature engineering: W2V, Bag-of-words
-- [ ] Logistic Regression
+- [X] Logistic Regression
 
 ### Assignment 5: 
 - [ ] Neural Networks
