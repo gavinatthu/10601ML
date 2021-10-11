@@ -850,7 +850,14 @@ For \emph{Model 1}, using the data in the \texttt{largedata} folder in the hando
 
 
 \begin{your_solution}[height=8cm]
-% YOUR ANSWER 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.55\textwidth]{./images/l_model1_5000eps.pdf}
+    \caption{The Average negative log likelihood for the largedata on model1 of 5,000 epochs}
+    \label{fig1}
+\end{figure}
+
 \begin{center}
 \end{center}
 \end{your_solution}
@@ -860,7 +867,14 @@ For \emph{Model 1}, using the data in the \texttt{largedata} folder in the hando
 For \emph{Model 2}, make a plot as in the previous question.
 
 \begin{your_solution}[height=8cm]
-% YOUR ANSWER 
+    
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.55\textwidth]{./images/l_model2_5000eps.pdf}
+    \caption{The Average negative log likelihood for the largedata on model2 of 5,000 epochs}
+    \label{fig2}
+\end{figure}
+    
 \begin{center}
 \end{center}
 \end{your_solution}
@@ -889,8 +903,8 @@ Make a table with your train and test error for the large data set (found in the
     \toprule
     & Train Error & Test Error \\ 
     \midrule
-    Model 1 & ? & ? \\ 
-    Model 2 & ? & ? \\ 
+    Model 1 & 0.166667 & 0.235000 \\ 
+    Model 2 & 0.214167 & 0.255000 \\ 
     \bottomrule
     \end{tabular}
     \caption{``Large Data'' Results}
@@ -906,7 +920,12 @@ Make a table with your train and test error for the large data set (found in the
 For \emph{Model 1}, using the data in the largedata folder of the handout, make a plot comparing the training average negative log-likelihood over epochs for three different values for the learning rates, $\alpha \in \{0.001, 0.01, 0.1 \}$. The y-axis should show the negative log likelihood, the x-axis should show the number of epochs (from 0 to 5,000 epochs), and the plot should contain three curves corresponding to the three values of $\alpha$. Provide a legend that indicates $\alpha$ for each curve.
         
 \begin{your_solution}[height=9cm]
-% YOUR ANSWER 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 0.6\textwidth]{./images/l_model1_lr.pdf}
+        \caption{The log-likelihood with different lr for the largedata on model1 of 5,000 epochs}
+        \label{fig3}
+    \end{figure}
 \begin{center}
 \end{center}
 \end{your_solution}
