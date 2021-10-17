@@ -64,7 +64,7 @@ class SoftmaxCELayer():
 
         # CE梯度证明：https://blog.csdn.net/jasonleesjtu/article/details/89426465
         self.grad = y_hat - label
-        self.acc = np.argmax(b) == np.argmax(label)
+        self.acc = np.argmax(y_hat) == np.argmax(label)
 
         return self.loss
 
@@ -82,6 +82,8 @@ class LinearLayer():
         if ini_flag == 1:
             self.weight = np.random.rand(dim_input, dim_output)
             self.bias = np.random.rand(1, dim_output)
+
+            # self.weight = np.random.rand(dim_input+1, dim_output)
 
         elif ini_flag == 2:
             self.weight = np.zeros((dim_input, dim_output))
@@ -124,19 +126,23 @@ class TotalNet():
         self.layerList.append(self.ACTFun)
         self.layerList.append(self.FC2)
 
+
     def forward(self, input):
         """
         从前向后传播
         """
+        #output = self.FC2.forward(self.ACTFun.forward(self.FC1.forward(input)))
+
         for layer in self.layerList:
             input = layer.forward(input)
-
         return input
     
     def backward(self, grad):
         """
         从后向前反向传播
         """
+        #grad = layer[0].backward(layer[1].backward(layer[2].backward(grad)))
+
         for layer in reversed(self.layerList):
             grad = layer.backward(grad)
         return grad
@@ -159,15 +165,16 @@ class NN():
             count = 0
             for i in range(len(self.labels)):
                 # 每个sample一次迭代SGD
-                # forward
                 input = np.expand_dims(self.feats[i], axis=0)
                 label = np.expand_dims(self.labels[i], axis=0)
+
+                # forward
                 pred = self.model.forward(input)
                 
                 loss = self.criterion.forward(pred, label)
+
                 # backward
                 grad = self.criterion.backward()
-
                 self.model.backward(grad)
 
                 # update
