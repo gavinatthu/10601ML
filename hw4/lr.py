@@ -141,8 +141,8 @@ def main(train_in, valid_in, test_in, dict_in, train_out, test_out, metrics, epo
 
     llfigure(ll_list,lr_list)
 
-    # acc_train = myLR.test(train_in, train_out)
-    # acc_test = myLR.test(test_in, test_out)
+    acc_train = myLR.test(train_in, train_out)
+    acc_test = myLR.test(test_in, test_out)
 
     # with open(metrics, 'w') as f:
     #     f.write('error(train): ' + str("%.6f" % acc_train) + '\n')
