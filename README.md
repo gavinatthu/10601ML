@@ -19,16 +19,4 @@ Aiming to help Silvia with her mastery of programming and PRML skills, so as me.
 - [X] Logistic Regression
 
 ### Assignment 5: 
-- [ ] Neural Networks
-
-### Assignment 6: 
-- [ ] Generative Models
-
-### Assignment 7: 
-- [ ] Hidden Markov Models
-
-### Assignment 8:
-- [ ] Reinforcement Learning
-
-### Assignment 9:
-- [ ] SVMs, K-Means, PCA, Boosting
+- [X] Neural Networks
