@@ -20,3 +20,6 @@ Aiming to help Silvia with her mastery of programming and PRML skills, so as me.
 
 ### Assignment 5: 
 - [X] Neural Networks
+
+### Assignment 7:
+- [X] HMM
