@@ -2,8 +2,6 @@
 
 This is the repo of the assignments of [CMU Mechine Learning 10601 (21Fall)](http://www.cs.cmu.edu/~mgormley/courses/10601/). Mainly implemented with Python and Numpy.  
 
-Aim to help Silvia with her mastery of programming and PRML skills, so as me. Silvia has explanation and ownership of the codes, and Gavin guides her with algorithmn understanding and model optimization. If you find the repo useful, please star us.  
-
 
 ### Assignment 1:
 - [x] Decision Stump
