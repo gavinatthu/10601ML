@@ -60,7 +60,7 @@ class Node():
         '''
         Overload print function
         '''
-        ## 小顾来写吧:)
+        
         string = str(Counter(self.output)[str(self.llable)])+' / '+ str(Counter(self.output)[str(self.rlable)])
 
         string_l = str(self.depth*" ")+ str(self.head[self.feat_idx])+' '+str(len(self.left.input))+\
